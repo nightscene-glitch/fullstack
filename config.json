@@ -1,0 +1,192 @@
+{
+  "app": {
+    "name": "NightScene",
+    "version": "1.0.0",
+    "environment": "development",
+    "port": 12000,
+    "host": "0.0.0.0",
+    "baseUrl": "https://work-1-oqvhfdqoczxangdv.prod-runtime.all-hands.dev",
+    "cors": {
+      "enabled": true,
+      "origins": ["*"]
+    }
+  },
+  "database": {
+    "type": "sqlite",
+    "database": "nightscene.db",
+    "synchronize": true,
+    "logging": false
+  },
+  "auth": {
+    "jwt": {
+      "secret": "nightscene-super-secret-jwt-key-2024",
+      "expiresIn": "7d"
+    },
+    "otp": {
+      "enabled": true,
+      "provider": "twilio",
+      "expiryMinutes": 5,
+      "length": 6
+    }
+  },
+  "payments": {
+    "razorpay": {
+      "enabled": true,
+      "keyId": "rzp_test_your_key_id",
+      "keySecret": "your_razorpay_secret",
+      "webhookSecret": "your_webhook_secret",
+      "currency": "INR"
+    },
+    "stripe": {
+      "enabled": true,
+      "publishableKey": "pk_test_your_stripe_key",
+      "secretKey": "sk_test_your_stripe_secret",
+      "webhookSecret": "whsec_your_webhook_secret",
+      "currency": "inr"
+    },
+    "payAtCounter": {
+      "enabled": true,
+      "expiryHours": 24,
+      "reservationFee": 50
+    }
+  },
+  "sms": {
+    "twilio": {
+      "enabled": true,
+      "accountSid": "your_twilio_account_sid",
+      "authToken": "your_twilio_auth_token",
+      "fromNumber": "+1234567890"
+    }
+  },
+  "email": {
+    "smtp": {
+      "enabled": true,
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "user": "your-email@gmail.com",
+      "password": "your-app-password"
+    }
+  },
+  "storage": {
+    "cloudinary": {
+      "enabled": true,
+      "cloudName": "your_cloud_name",
+      "apiKey": "your_api_key",
+      "apiSecret": "your_api_secret"
+    },
+    "local": {
+      "enabled": true,
+      "uploadPath": "./uploads"
+    }
+  },
+  "maps": {
+    "google": {
+      "enabled": true,
+      "apiKey": "your_google_maps_api_key"
+    }
+  },
+  "analytics": {
+    "mixpanel": {
+      "enabled": true,
+      "token": "your_mixpanel_token"
+    },
+    "firebase": {
+      "enabled": true,
+      "projectId": "your_firebase_project_id",
+      "privateKey": "your_firebase_private_key",
+      "clientEmail": "your_firebase_client_email"
+    }
+  },
+  "notifications": {
+    "firebase": {
+      "enabled": true,
+      "serverKey": "your_fcm_server_key"
+    },
+    "onesignal": {
+      "enabled": true,
+      "appId": "your_onesignal_app_id",
+      "apiKey": "your_onesignal_api_key"
+    }
+  },
+  "social": {
+    "facebook": {
+      "enabled": true,
+      "appId": "your_facebook_app_id",
+      "appSecret": "your_facebook_app_secret"
+    },
+    "google": {
+      "enabled": true,
+      "clientId": "your_google_client_id",
+      "clientSecret": "your_google_client_secret"
+    },
+    "instagram": {
+      "enabled": true,
+      "accessToken": "your_instagram_access_token"
+    }
+  },
+  "features": {
+    "recommendations": {
+      "enabled": true,
+      "algorithm": "hybrid",
+      "refreshIntervalHours": 6
+    },
+    "socialSharing": {
+      "enabled": true,
+      "platforms": ["facebook", "instagram", "whatsapp", "twitter"]
+    },
+    "geolocation": {
+      "enabled": true,
+      "defaultRadius": 25,
+      "maxRadius": 100
+    },
+    "payAtCounter": {
+      "enabled": true,
+      "maxReservations": 5
+    },
+    "groupBooking": {
+      "enabled": true,
+      "maxGroupSize": 10
+    },
+    "loyaltyProgram": {
+      "enabled": true,
+      "pointsPerRupee": 1,
+      "redemptionRate": 0.01
+    }
+  },
+  "limits": {
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 100
+    },
+    "fileUpload": {
+      "maxSize": "10MB",
+      "allowedTypes": ["image/jpeg", "image/png", "image/webp"]
+    },
+    "search": {
+      "maxResults": 50,
+      "cacheMinutes": 5
+    }
+  },
+  "security": {
+    "encryption": {
+      "algorithm": "aes-256-gcm",
+      "key": "your-32-character-encryption-key"
+    },
+    "qrCode": {
+      "secret": "nightscene-qr-secret-2024",
+      "expiryHours": 24
+    },
+    "antifraud": {
+      "enabled": true,
+      "maxTicketsPerUser": 10,
+      "suspiciousActivityThreshold": 5
+    }
+  },
+  "demo": {
+    "enabled": true,
+    "autoPopulateData": true,
+    "mockPayments": true,
+    "skipOtpVerification": true
+  }
+}
